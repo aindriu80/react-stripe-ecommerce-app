@@ -1,12 +1,14 @@
 import Header from './components/header/header'
 import Hero from "./components/hero/hero";
-import "./App.scss";
+import MainSection from './components/main-section/main-section';
+import './App.scss';
 
 function App() {
   return (
     <>
       <Header />
       <Hero />
+      <MainSection />
     </>
   );
 }
