@@ -1,13 +1,14 @@
 import Header from './components/header/header'
-import './App.scss'
+import Hero from "./components/hero/hero";
+import "./App.scss";
 
 function App() {
   return (
     <>
       <Header />
-      <div className="App">React E-Commerce Stripe App</div>
+      <Hero />
     </>
-  )
+  );
 }
 
 export default App
