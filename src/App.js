@@ -1,20 +1,15 @@
-import Header from './components/header/header'
-import Hero from "./components/hero/hero";
-import MainSection from './components/main-section/main-section';
-import FeaturedCollection from './components/featured-collection/featured-collection';
-import Footer from './components/footer/footer';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './components/home-page';
 import './App.scss';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-      <MainSection />
-      <FeaturedCollection />
-      <Footer />
-    </>
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+      </Routes>
+    </div>
   );
 }
 
-export default App
+export default App;
