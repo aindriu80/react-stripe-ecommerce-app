@@ -14,11 +14,11 @@ const CartItem = (product) => {
         <p>€{price}</p>
       </div>
       <div className='quantity'>
-        <p>{`Quantity: €{quantity}`}</p>
+        <p>{`Quantity: ${quantity}`}</p>
       </div>
       <div className='btns-container'>
         <button className='btn-increase'>
-          <PlusCircleIcon widht='20px' />
+          <PlusCircleIcon width='20px' />
         </button>
         {quantity === 1 && (
           <button className='btn-trash'>
@@ -26,8 +26,8 @@ const CartItem = (product) => {
           </button>
         )}
         {quantity > 1 && (
-          <button className='btb-decrease'>
-            <minusCircleIcon width='20px' />
+          <button className='btn-decrease'>
+            <MinusCircleIcon width='20px' />
           </button>
         )}
       </div>
