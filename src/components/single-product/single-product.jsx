@@ -2,14 +2,17 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { ProductsContext } from '../../context/products-context';
+import { CartContext } from '../../context/cart-context';
+import { isInCart } from '../../helpers';
 import Layout from '../shared/layout';
 import './single-product.styles.scss';
 
 const SingleProduct = ({ props }) => {
   let navigate = useNavigate();
   const { products } = useContext(ProductsContext);
+  const { addProduct, cartItems } = useContext(CartContext);
   let { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
   useEffect(() => {
     const product = products.find((item) => Number(item.id) === Number(id));
 
@@ -26,6 +29,7 @@ const SingleProduct = ({ props }) => {
   }
 
   const { imageUrl, title, price, description } = product;
+  const itemInCart = isInCart(product, cartItems);
   return (
     <Layout>
       <div className='single-product-container'>
@@ -38,12 +42,24 @@ const SingleProduct = ({ props }) => {
             <p>{price}</p>
           </div>
           <div className='add-to-cart-buttons'>
-            <button
-              className='button is-white nomad-btn'
-              id='btn-white-outline'
-            >
-              ADD TO CART
-            </button>
+            {!itemInCart && (
+              <button
+                className='button is-white nomad-btn'
+                id='btn-white-outline'
+                onClick={() => addProduct(product)}
+              >
+                ADD TO CART
+              </button>
+            )}
+            {itemInCart && (
+              <button
+                className='button is-white nomad-btn'
+                id='btn-white-outline'
+                onClick={() => {}}
+              >
+                ADD MORE
+              </button>
+            )}
             <button
               className='button is-black nomad-btn'
               id='btn-white-outline'
