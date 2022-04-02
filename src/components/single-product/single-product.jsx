@@ -10,7 +10,7 @@ import './single-product.styles.scss';
 const SingleProduct = ({ props }) => {
   let navigate = useNavigate();
   const { products } = useContext(ProductsContext);
-  const { addProduct, cartItems } = useContext(CartContext);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
   let { id } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(() => {
@@ -55,7 +55,7 @@ const SingleProduct = ({ props }) => {
               <button
                 className='button is-white nomad-btn'
                 id='btn-white-outline'
-                onClick={() => {}}
+                onClick={() => increase(product)}
               >
                 ADD MORE
               </button>
