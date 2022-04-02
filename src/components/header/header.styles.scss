@@ -1,26 +1,28 @@
-.nav-menu{
-	display:flex;
-	padding:1rem;
+.nav-menu {
+  display: flex;
+  padding: 1rem;
 
-	a{
-		text-decoration: none;
-		&:focus, &:hover, &:visited{
-			color: black;
-		}
-	}
+  a {
+    text-decoration: none;
+    &:focus,
+    &:hover,
+    &:visited {
+      color: black;
+    }
+  }
 
-	.logo{
-		font-size:1.5em;
-	}
+  .logo {
+    font-size: 1.5em;
+  }
 
-	ul {
-		list-style-type: none;
-		margin:0;
-		margin-left: auto;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    margin-left: auto;
 
-		li{
-			display: inline-block;
-			margin: 0 1rem;
-		}
-	}
+    li {
+      display: inline-block;
+      margin: 0 1rem;
+    }
+  }
 }

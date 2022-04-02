@@ -1,18 +1,18 @@
 .cart-container {
-	margin-left: auto;
-	cursor: pointer;
+  margin-left: auto;
+  cursor: pointer;
 
-	img {
-		width: 33px;
-	}
+  img {
+    width: 33px;
+  }
 
-	.cart-count {
-		margin-left: -23px;		 
-		padding-bottom: 20px;
-		color:black;
-		border-radius: 10px;
+  .cart-count {
+    margin-left: -23px;
+    padding-bottom: 20px;
+    color: black;
+    border-radius: 10px;
 
-		position: relative;
-		bottom: 4px;
-	}
+    position: relative;
+    bottom: 4px;
+  }
 }
