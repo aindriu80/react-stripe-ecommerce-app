@@ -7,7 +7,7 @@ const Total = ({ itemCount, total }) => {
     <div className='total-container'>
       <div className='total'>
         <p>Total Items: {itemCount}</p>
-        <p>{`Total:${total}`}</p>
+        <p>{`Total: €${total}`}</p>
       </div>
       <div className='checkout'>
         <button
@@ -16,7 +16,7 @@ const Total = ({ itemCount, total }) => {
         >
           CHECKOUT
         </button>
-        <button className='button is-white' onClick={() => {}}>
+        <button className='button' onClick={() => {}}>
           CLEAR
         </button>
       </div>
