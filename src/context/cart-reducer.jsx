@@ -1,4 +1,10 @@
+const storeCartItems = (cartItems) => {
+  const cart = cartItems.length > 0 ? cartItems : [];
+  localStorage.setItem('cart', JSON.stringify(cart));
+};
+
 export const sumItems = (cartItems) => {
+  storeCartItems(cartItems);
   return {
     itemCount: cartItems.reduce((total, prod) => total + prod.quantity, 0),
     total: cartItems.reduce(
@@ -55,6 +61,8 @@ const cartReducer = (state, action) => {
       const newCartItems = state.cartItems.filter(
         (item) => item.id !== action.payload.id
       );
+      // localStorage.removeItem(newCartItems);
+
       return {
         ...state,
         cartItems: [...newCartItems],
@@ -62,6 +70,7 @@ const cartReducer = (state, action) => {
       };
 
     case 'CLEAR_CART':
+      localStorage.removeItem('cart');
       return {
         cartItems: [],
         itemCount: 0,
