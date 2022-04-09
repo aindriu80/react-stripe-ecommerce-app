@@ -6,14 +6,41 @@ import { fetchFromAPI } from '../../../helpers';
 const StripeCheckout = () => {
   const [email, setEmail] = useState('');
   const { cartItems } = useContext(CartContext);
+  const stripe = useStripe();
+  const handleGuestCheckout = async (e) => {
+    e.preventDefault();
+    const line_items = cartItems.map((item) => {
+      return {
+        quantity: item.quantity,
+        price: {
+          currency: 'eur',
+          unit_amount: item.price * 100, // amount in cent
+          product_data: {
+            name: item.title,
+            description: item.description,
+            images: [item.imageUrl],
+          },
+        },
+      };
+    });
 
-  const handleGuestCheckout = () => {};
+    const response = await fetchFromAPI('create-checkout-session', {
+      body: { line_items, customer_email: email },
+    });
+    const { sessionId } = response;
+    const { error } = await stripe.redirectToCheckout({
+      sessionId,
+    });
+    if (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <form onSubmit={handleGuestCheckout}>
       <div className=''>
         <input
-          type='eamil'
+          type='email'
           onChange={(e) => setEmail(e.target.value)}
           placeholder='Email'
           value={email}
@@ -21,7 +48,7 @@ const StripeCheckout = () => {
         />
       </div>
       <div className='submit-btn'>
-        <button type='submit' className='btn is-black nomad-btn submit'>
+        <button type='submit' className='button is-black nomad-btn submit'>
           Checkout
         </button>
       </div>
@@ -29,4 +56,4 @@ const StripeCheckout = () => {
   );
 };
 
-export default StripeCheckout();
+export default StripeCheckout;
