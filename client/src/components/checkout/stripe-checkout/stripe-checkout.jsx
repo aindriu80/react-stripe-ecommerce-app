@@ -12,8 +12,8 @@ const StripeCheckout = () => {
     const line_items = cartItems.map((item) => {
       return {
         quantity: item.quantity,
-        price: {
-          currency: 'eur',
+        price_data: {
+          currency: 'usd',
           unit_amount: item.price * 100, // amount in cent
           product_data: {
             name: item.title,
