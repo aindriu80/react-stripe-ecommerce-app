@@ -7,8 +7,12 @@ import ProductsContextProvider from './context/products-context';
 import CartContextProvider from './context/cart-context';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-
-const stripePromise = loadStripe(`${process.env.PUBLISHABLE_KEY}`);
+ 
+ 
+ 
+const stripePromise = loadStripe(`${process.env.REACT_APP_PUBLISHABLE_KEY}`);
+ 
+ 
 
 ReactDOM.render(
   <BrowserRouter>

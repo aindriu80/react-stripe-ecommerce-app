@@ -4,7 +4,7 @@ require('dotenv').config({ path: './.env' });
 const createCheckoutSession = require('./api/checkout');
  
 const compression = require('compression');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); 
 const app = express();
 const port = 8080;
 
